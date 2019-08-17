@@ -23,8 +23,8 @@ export class Posts extends BaseModel {
   @Column() status: string;
 
   @Column() allowComments: boolean;
-  // @Column('uuid')
-  // userId: string;
+  @Column('uuid')
+  userId: string;
   @Column('text')
   content: string;
 

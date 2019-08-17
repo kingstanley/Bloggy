@@ -23,4 +23,7 @@ export class PostService {
     // console.log('user in service: ', user, postDto)
     return this.postRepo.createPosts(postDto, user);
   }
+  async findAll():Promise<Posts[]>{
+    return await this.postRepo.find()
+  }
 }

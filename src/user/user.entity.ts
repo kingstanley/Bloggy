@@ -1,5 +1,5 @@
 import { Like } from './../post/entity/like.entity';
-import { Entity, Unique, Column, OneToMany, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Unique, Column, OneToMany, OneToOne } from 'typeorm';
 import { BaseModel } from '../basemodel';
 import * as bcrypt from 'bcrypt';
 import { Posts } from '../post/entity/post.entity';

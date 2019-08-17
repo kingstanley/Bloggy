@@ -13,7 +13,7 @@ export class UserService {
     @InjectRepository(UserRepository) private userRepository: UserRepository,
     private jwtService: JwtService,
   ) {}
-  async SignuP(userDto: UserDto): Promise<string> {
+  async SignuP(userDto: UserDto): Promise<{message:string}> {
     return await this.userRepository.SignUp(userDto);
   }
 

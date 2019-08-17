@@ -19,8 +19,9 @@ import { GetUser } from './get-user.decorator';
 export class UserController {
   constructor(private userService: UserService) {}
 
-  @Post()
-  signup(@Body() userDto: UserDto): Promise<string> {
+  @Post('signup')
+  signup(@Body() userDto: UserDto): Promise<{message: string}> {
+    // console.log(userDto)
     return this.userService.SignuP(userDto);
   }
 
@@ -30,10 +31,11 @@ export class UserController {
   ): Promise<{ accessToken: string }> {
     return this.userService.SignIn(authCredentialDto);
   }
-@Post('login')
-login(@Body() authCredentialDto: AuthCredentialsDto): Promise<{accessToken: string}>{
-  return this.userService.SignIn(authCredentialDto);
-}
+  
+// @Post('login')
+// login(@Body() authCredentialDto: AuthCredentialsDto): Promise<{accessToken: string}>{
+//   return this.userService.SignIn(authCredentialDto);
+// }
 
   @Get()
   @UseGuards(AuthGuard())

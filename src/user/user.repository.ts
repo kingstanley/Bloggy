@@ -8,23 +8,32 @@ import {
 import * as bcrypt from 'bcrypt';
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-  async SignUp(userDto: import('./dto/user.dto').UserDto): Promise<string> {
+  async SignUp(userDto: import('./dto/user.dto').UserDto): Promise<{message:string}> {
     try {
       const salt = await bcrypt.genSalt();
       userDto.password = await this.hashPassword(userDto.password, salt);
       userDto['salt'] = salt;
+      const usernameExist = await this.findOne({ username: userDto.username });
+      if (usernameExist) {
+        throw new ConflictException(
+          'Username already exist. Choose another username and try again'
+        );
+      }
+
+      const userEmailExist = await this.findOne({ email: userDto.email });
+      if (userEmailExist) {
+        throw new ConflictException(
+          'Email already exist. Choose another email  and try again'
+        );
+      }
       const user = await User.create(userDto).save();
       if (user) {
-        return 'Sign up successful';
-      } else {
-        return 'Sign up failed!';
-      }
+        return {message:'Sign up successful'};
+      }  
     } catch (error) {
-      if (error.code === '23505') {
-        throw new ConflictException(error.detail);
-      } else {
-        throw new InternalServerErrorException(`Sign up failed. Try Again!`);
-      }
+      console.log('Error: ', error.message);
+
+      throw new InternalServerErrorException(error.message);
     }
   }
 
@@ -37,7 +46,7 @@ export class UserRepository extends Repository<User> {
     try {
       const { username, password } = authCredentialDto;
       console.log(authCredentialDto);
-      const user = await User.findOne({ username });
+      const user = await User.findOne({ username }) || await this.findOne({email:username});
       console.log(user);
       if (user && (await user.validatePassword(password))) {
         return user.username;

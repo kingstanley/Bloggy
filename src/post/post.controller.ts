@@ -19,6 +19,11 @@ export class PostController {
     return this.postService.findByTitle(title);
   }
 
+  @Get()
+  findAll(): Promise<Posts[]> {
+    return this.postService.findAll()
+  }
+
   @Post() 
   @UseGuards(AuthGuard())
   createPost(

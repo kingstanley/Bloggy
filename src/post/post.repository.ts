@@ -22,7 +22,7 @@ export class PostsRepository extends Repository<Posts> {
 
   async findById(id: string): Promise<Posts> {
     const query = this.createQueryBuilder('post');
-    const found =  query.whereInIds(id).getOne();
+    const found = query.whereInIds(id).getOne();
     // const found = await this.findOne({ where: { id } });
     if (!found) {
       throw new NotFoundException(
@@ -33,13 +33,25 @@ export class PostsRepository extends Repository<Posts> {
     return found;
   }
 
-  async createPosts(postDto: PostDto, user: User): Promise<Posts> {
+  async findAllByAuthorId(authorId: string): Promise<Posts[]> {
+    const query = this.createQueryBuilder('post');
+    const found = query.where({ userId: authorId }).getMany();
+    if (found) {
+      return found;
+    } else {
+      throw new NotFoundException(
+        'The author currently have any published new',
+      );
+    }
+  }
 
+  async createPosts(postDto: PostDto, user: User): Promise<Posts> {
     const { tags, title, content, allowComments, status } = postDto;
-    try {console.log('dto: ', postDto);
-         const slug = title.replace(/ /g, '-'); // replacing space with hyphen
-         console.log('Tags: ', tags);
-         const post = await Posts.create({
+    try {
+      console.log('dto: ', postDto);
+      const slug = title.replace(/ /g, '-'); // replacing space with hyphen
+      console.log('Tags: ', tags);
+      const post = await Posts.create({
         title,
         content,
         slug,
@@ -47,8 +59,8 @@ export class PostsRepository extends Repository<Posts> {
         status,
         user,
       });
-         const tagsToSave = [];
-         console.log('Tag length: ', tags.length);
+      const tagsToSave = [];
+      console.log('Tag length: ', tags.length);
       for (let i = 0; i < tags.length; i++) {
         // console.log('Tag at: ', i, ' is: ', tags[i]);
         let tagg = await Tag.findOne({ tag: tags[i].tag });
@@ -62,11 +74,11 @@ export class PostsRepository extends Repository<Posts> {
           tagsToSave.push(tagg);
         }
       }
-         post.tags = tagsToSave;
+      post.tags = tagsToSave;
 
-         post.user = user;
-         await post.save();
-         return post;
+      post.user = user;
+      await post.save();
+      return post;
     } catch (error) {
       console.log(error.message);
       throw new InternalServerErrorException(
