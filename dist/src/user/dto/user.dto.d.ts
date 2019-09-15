@@ -4,4 +4,5 @@ export declare class UserDto {
     password: string;
     firstName: string;
     otherNames: string;
+    salt: string;
 }

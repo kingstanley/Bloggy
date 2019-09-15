@@ -12,6 +12,7 @@ const user_module_1 = require("./user/user.module");
 const post_module_1 = require("./post/post.module");
 const typeormconfig_1 = require("../config/typeormconfig");
 const tutorial_module_1 = require("./tutorial/tutorial.module");
+const platform_express_1 = require("@nestjs/platform-express");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -21,6 +22,9 @@ AppModule = __decorate([
             user_module_1.UserModule,
             post_module_1.PostModule,
             tutorial_module_1.TutorialModule,
+            platform_express_1.MulterModule.register({
+                dest: './upload'
+            })
         ],
         controllers: [],
         providers: [],

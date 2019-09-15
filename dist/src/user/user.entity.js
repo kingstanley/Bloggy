@@ -50,6 +50,10 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "about", void 0);
 __decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], User.prototype, "avatar", void 0);
+__decorate([
     typeorm_1.OneToOne(type => like_entity_1.Like, like => like.user),
     __metadata("design:type", like_entity_1.Like)
 ], User.prototype, "like", void 0);
@@ -58,7 +62,7 @@ __decorate([
     __metadata("design:type", Array)
 ], User.prototype, "myposts", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => comment_entity_1.Comment, comments => comments.user, { eager: true }),
+    typeorm_1.OneToMany(type => comment_entity_1.Comment, comments => comments.user, { eager: false }),
     __metadata("design:type", Array)
 ], User.prototype, "comments", void 0);
 __decorate([

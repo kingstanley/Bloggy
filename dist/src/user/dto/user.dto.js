@@ -46,5 +46,9 @@ __decorate([
     class_validator_1.IsString(),
     __metadata("design:type", String)
 ], UserDto.prototype, "otherNames", void 0);
+__decorate([
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], UserDto.prototype, "salt", void 0);
 exports.UserDto = UserDto;
 //# sourceMappingURL=user.dto.js.map

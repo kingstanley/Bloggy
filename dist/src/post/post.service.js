@@ -25,11 +25,26 @@ let PostService = class PostService {
     async findById(id) {
         return this.postRepo.findById(id);
     }
+    async findByAuthor(authorId) {
+        return this.postRepo.findAllByAuthorId(authorId);
+    }
+    async my(user) {
+        return this.postRepo.my(user);
+    }
     async createPost(postDto, user) {
         return this.postRepo.createPosts(postDto, user);
     }
     async findAll() {
-        return await this.postRepo.find();
+        return await this.postRepo.findAll();
+    }
+    async findTags(tag) {
+        return this.postRepo.findTags(tag);
+    }
+    async allTags() {
+        return this.postRepo.allTags();
+    }
+    comment(comment, user) {
+        return this.postRepo.comment(comment, user);
     }
 };
 PostService = __decorate([

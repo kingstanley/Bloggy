@@ -10,6 +10,7 @@ export declare class User extends BaseModel {
     firstName: string;
     otherNames: string;
     about?: string;
+    avatar: string;
     like: Like;
     myposts: Posts[];
     comments: Comment[];

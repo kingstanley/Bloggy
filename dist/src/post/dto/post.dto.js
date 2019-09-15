@@ -29,6 +29,10 @@ __decorate([
 __decorate([
     class_validator_1.IsString(),
     __metadata("design:type", String)
+], PostDto.prototype, "videoUrl", void 0);
+__decorate([
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
 ], PostDto.prototype, "status", void 0);
 __decorate([
     class_validator_1.IsBoolean(),
