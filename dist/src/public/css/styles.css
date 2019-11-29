@@ -1,0 +1,123 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+
+  /* background: radial-gradient(red, white) */
+}
+@media (min-width: 1000px) {
+  .form {
+    width: 500px;
+    text-align: center;
+    margin-top: 6%;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+  .post-card{
+    height: 500px;
+
+  }
+  .post-card:last-child{
+    margin-right: -50px;
+  }
+}
+.no-space:not(:last-child) {
+  margin-bottom: 2px;
+}
+.form {
+  /* width: 500px; text-align:center;margin-top: 6%; margin-left:30%; margin-right: auto */
+  height: auto;
+}
+.container {
+  width: 97%;
+}
+.img {
+  width: 100px;
+}
+.title{
+  margin-top: -10px;
+}
+.post-title{
+  font-size: 50px; 
+  text-transform: capitalize;
+}
+.card {
+  /* display: inline-block;  */
+  flex: row;
+  word-wrap: break-word;
+}
+.post-list-author{position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* text-align: center;  */
+}
+.post-card {
+  display: inline-block;
+  /* flex: row; */
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  /* height: auto; */
+  word-wrap: break-word;
+}
+main {
+  flex: 1 0 auto;
+}
+footer {
+  margin-top: 20px;
+}
+.post-text {
+  height: 120px;
+}
+.dash-status {
+  text-transform: capitalize;
+}
+
+#delete-form {
+  display: inline;
+}
+.nav-wrapper .fa-bars {
+  font-size: 25px;
+}
+.img-wrapper {
+  word-wrap: initial;
+  flex-wrap: wrap;
+}
+.error {
+  background: whitesmoke;
+  color: red;
+  font-size: 20px;
+}
+.success {
+  background: green;
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: bold;
+}
+.post-title {
+  font-size: 1.5rem;
+  margin: 2px;
+  text-align: justify;
+  width: 90%;
+  break-after: column;
+}
+.input-field {
+  /* width: 50%; */
+  margin: -20px 20px 20px 20px;
+}
+.account {
+  width: 50%;
+  text-align: center;
+  margin: 20px;
+}
+.center {
+  text-align: center;
+  /* margin-left: 30%; */
+}
+
+.meta {
+  margin-top: -30px;
+}

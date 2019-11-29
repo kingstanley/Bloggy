@@ -1,4 +1,10 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Render } from '@nestjs/common';
 
-@Controller('tutorial')
-export class TutorialController {}
+@Controller('courses')
+export class TutorialController {
+    @Get()
+    @Render("tutorial/index")
+async  findAll(){
+return;
+    }
+}

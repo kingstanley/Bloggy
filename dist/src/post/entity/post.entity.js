@@ -31,6 +31,10 @@ __decorate([
 ], Posts.prototype, "status", void 0);
 __decorate([
     typeorm_1.Column(),
+    __metadata("design:type", String)
+], Posts.prototype, "videoUrl", void 0);
+__decorate([
+    typeorm_1.Column(),
     __metadata("design:type", Boolean)
 ], Posts.prototype, "allowComments", void 0);
 __decorate([
@@ -43,19 +47,22 @@ __decorate([
 ], Posts.prototype, "content", void 0);
 __decorate([
     typeorm_1.ManyToOne(type => user_entity_1.User, user => user.myposts),
+    typeorm_1.JoinColumn({ name: 'userId' }),
     __metadata("design:type", user_entity_1.User)
 ], Posts.prototype, "user", void 0);
 __decorate([
-    typeorm_1.ManyToMany(type => tag_entity_1.Tag, { cascade: true }),
+    typeorm_1.ManyToMany(type => tag_entity_1.Tag, tag => tag.posts, { cascade: true }),
     typeorm_1.JoinTable(),
     __metadata("design:type", Array)
 ], Posts.prototype, "tags", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => comment_entity_1.Comment, comment => comment.postId),
+    typeorm_1.OneToMany(type => comment_entity_1.Comment, comment => comment.post, { cascade: true }),
+    typeorm_1.JoinColumn({ name: 'postId' }),
     __metadata("design:type", Array)
 ], Posts.prototype, "comments", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => like_entity_1.Like, like => like.post),
+    typeorm_1.OneToMany(type => like_entity_1.Like, like => like.post, { cascade: true }),
+    typeorm_1.JoinColumn({ name: 'postId' }),
     __metadata("design:type", Array)
 ], Posts.prototype, "likes", void 0);
 Posts = __decorate([

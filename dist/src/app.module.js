@@ -11,7 +11,13 @@ const typeorm_1 = require("@nestjs/typeorm");
 const user_module_1 = require("./user/user.module");
 const post_module_1 = require("./post/post.module");
 const typeormconfig_1 = require("../config/typeormconfig");
+const email_config_1 = require("../config/email.config");
 const tutorial_module_1 = require("./tutorial/tutorial.module");
+const platform_express_1 = require("@nestjs/platform-express");
+const notification_module_1 = require("./notification/notification.module");
+const subscription_module_1 = require("./subscription/subscription.module");
+const mailer_1 = require("@nest-modules/mailer");
+const app_controller_1 = require("./app/app.controller");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -21,9 +27,28 @@ AppModule = __decorate([
             user_module_1.UserModule,
             post_module_1.PostModule,
             tutorial_module_1.TutorialModule,
+            platform_express_1.MulterModule.register({
+                dest: "./upload"
+            }),
+            mailer_1.MailerModule.forRoot({
+                transport: `smtps://${email_config_1.email.address}:${email_config_1.email.password}@${email_config_1.email.server}`,
+                defaults: {
+                    from: '"nest-modules" <modules@nestjs.com>'
+                },
+                template: {
+                    dir: __dirname + "/templates",
+                    adapter: new mailer_1.HandlebarsAdapter(),
+                    options: {
+                        strict: true
+                    }
+                }
+            }),
+            notification_module_1.NotificationModule,
+            subscription_module_1.SubscriptionModule
         ],
-        controllers: [],
+        controllers: [app_controller_1.AppController],
         providers: [],
+        exports: [user_module_1.UserModule, post_module_1.PostModule]
     })
 ], AppModule);
 exports.AppModule = AppModule;

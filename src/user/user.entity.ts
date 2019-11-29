@@ -1,12 +1,12 @@
-import { Like } from './../post/entity/like.entity';
-import { Entity, Unique, Column, OneToMany, OneToOne } from 'typeorm';
-import { BaseModel } from '../basemodel';
-import * as bcrypt from 'bcrypt';
-import { Posts } from '../post/entity/post.entity';
-import { Comment } from '../post/entity/comment.entity';
+import { Like } from "./../post/entity/like.entity";
+import { Entity, Unique, Column, OneToMany, OneToOne } from "typeorm";
+import { BaseModel } from "../basemodel";
+import * as bcrypt from "bcrypt";
+import { Posts } from "../post/entity/post.entity";
+import { Comment } from "../post/entity/comment.entity";
 
 @Entity()
-@Unique(['username', 'email'])
+@Unique(["username", "email"])
 export class User extends BaseModel {
   @Column({ length: 50 })
   username: string;
@@ -22,13 +22,28 @@ export class User extends BaseModel {
   @Column({ length: 500, nullable: true })
   about?: string;
 
+  @Column()
+  avatar: string;
+
+  @Column()
+  token: string;
+
+  @Column()
+  tokenExpiresAt: number;
+
+  @Column({default: false})
+  confirmedEmail: boolean;
+
+  @Column({default: false})
+  confirmedPhone: boolean;
+
   @OneToOne(type => Like, like => like.user)
   like: Like;
 
-  @OneToMany(type => Posts, post => post.user,{cascade:true, eager:false})
-    myposts: Posts[];
+  @OneToMany(type => Posts, post => post.user, { cascade: true, eager: false })
+  myposts: Posts[];
 
-  @OneToMany(type => Comment, comments => comments.user, { eager: true })
+  @OneToMany(type => Comment, comments => comments.user, { eager: false })
   comments: Comment[];
 
   @OneToMany(type => Like, like => like.user)

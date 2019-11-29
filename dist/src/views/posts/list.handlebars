@@ -1,0 +1,92 @@
+{{!-- <div class="row">
+    <a href="/" class="brand-logo center">
+        <img src="/img/beam.png" class="responsive-img" width="100%;">
+    </a>
+</div> --}}
+{{!-- <div class="row">
+    <div class="carousel ">
+        {{#each posts}}
+
+        <a class="carousel-item " href="/view/{{id}}">
+            <p> {{title}}</p>
+            <img src="{{image}}" class="responsive-img">
+        </a>
+
+
+        {{/each}}
+    </div>
+</div> --}}
+{{!-- <h1>Trending News</h1> --}}
+<div class="row">
+
+    <div class="col s12 l9 m9">
+        {{#each posts}}
+        <div class="col s12 l5 card hoverable post-card">
+            <div class="card-image">
+                {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}}
+            </div>
+              
+            <div class="card-content">
+                <div class="">
+                    <a href="/posts/view/{{id}}" class="hoverable title"> {{{formatTitle title 25}}} </a>
+
+                    <br>
+                    <div class="center meta">
+                        {{!-- Posted On: --}}
+                        <a class="hoverable" href="/posts/date/{{date}}"> {{formatDate date "MMMM Do YYYY"}}</a>,
+                        {{!-- <a class="hoverable" href="/posts/author/{{user.id}}">{{user.firstName}}, {{user.otherNames}}</a>  --}}
+
+                        Tags: {{#if tags}}
+
+
+                        {{#each tags}}
+                        <a class="hoverable" href="/posts/tag/{{tag}}">{{tag}}</a> 
+                        {{/each}}
+                        {{/if}}
+
+                        {{!-- <a><i class="fa fa-thumbs-up"></i>&nbsp;{{likes.length}}</a> | <i class="fa fa-eye"></i>
+                    {{views}}</span> --}}
+                    </div>
+                    <br />
+                </div>
+                <div class="">
+                    <a href="view/{{id}}">
+                        {{#if videoUrl}}
+                        <span class="hoverable responsive-img" style="width: 50% height:60%">{{{videoUrl}}}</span>
+                        {{else}}
+                        <img style="width: 50% height:60%" class="hoverable responsive-img" src="/img/sdc.png" alt="Standevcode.com">
+
+                        {{/if}}
+
+                        {{!-- <img src="{{image}}" class="img responsive-img circle thumbnail hoverable"> --}}
+                    </a>
+
+                    <p class="justify-text"> {{{stripTags (truncate content 250 ) }}}
+                        <a href="/posts/view/{{id}}" class="">
+                            Read More
+                             {{!-- <i class="fa fa-arrow-right"></i> --}}
+                             </a> </p>
+                </div>
+            </div>
+            <div class="card-footer post-list-author">
+                <div class="chip">
+                    <img src="{{user.avatar}}" />
+                    <a href="/posts/author/{{user.id}}">
+                    {{user.firstName}} 
+                    {{!-- {{user.otherNames}} --}}
+                    </a>
+                    </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="col s12 l3 ">
+        <div class="card">
+            <div class="card-content">
+                {{>_search}}
+            </div>
+        </div>
+       {{>_sidebar  tags=tags message="There are tags"}}
+    </div>
+</div>

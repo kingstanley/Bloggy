@@ -1,0 +1,92 @@
+<nav class="yellow darken-4">
+    <div class="container">
+        <div class="nav-wrapper ">
+            <a href="/" class="brand-logo ">
+                {{!-- <img src="/img/beam.png" class="responsive-img" width="150px;"> --}}
+                Standevcode
+            </a>
+
+            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class=" fa fa-bars"></i></a>
+            <!-- Right Nav -->
+
+            <ul class="right hide-on-small-only">
+                {{#if user}}
+                <li>
+                    <div>
+                        <a href="/user/dashboard/">
+                            Welcme, <img src="{{user.avatar}}" height="30px" /> <span
+                                class="title">{{user.firstName}}</span>
+                        </a>
+                    </div>
+
+                </li>
+                <li><a href="/user/signout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                {{else}}
+                {{!-- <a><a href="/"><i class="fa fa-book"></i> Post</a></a> --}}
+                <li><a href="/courses"> Courses</a></li>
+                {{!-- <li><a href="/tutorial/angular"> Angular</a></li>
+                <li><a href="/tutorial/react">React</a></li>
+                <li><a href="/tutorial/react">Nodejs</a></li>
+                <li><a href="/tutorial/aspnetcore">Aspnet Core</a></li>
+                <li><a href="/tutorial/dartandflutter">Dart & Flutter</a></li> --}}
+                <li><a href="/user/signin" onclick="Materialize.toast('You are now Logged out',2000)"><i
+                            class="fa fa-sign-in waves-effect waves-red"></i>
+                        Sign in</a></li>
+
+                {{/if}}
+
+
+            </ul>
+            <ul class="right">
+                {{!-- {{>_search}} --}}
+            </ul>
+            <!-- SIDE MENU -->
+            <ul id="slide-out" class="sidenav">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="/img/background.jpg">
+                        </div>
+                        <a href="#user"><img class="circle" src="{{user.avatar}}"></a>
+                        <a href="#name"><span class="white-text name">{{user.firstName}} {{user.otherNames}}</span></a>
+                        <a href="#email"><span class="white-text email">{{user.email}}</span></a>
+                    </div>
+                </li>
+                {{#if user}}
+                <li>
+                    <a href="/"><i class="fa fa-book"></i> Recent </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="/dashboard"><i class="fa fa-cog"></i>Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="/user/signout" onclick="Materialize.toast('You are now Logged out', 2000)"><i
+                            class="fa fa-sign-out left"></i>Logout</a>
+                </li>
+                <li class="divider"></li>
+                {{else}}
+
+                <li>
+                    <a class="btn red darken-1" href="/user/signin"><i class="fa fa-sign-in left top"></i>Sign in</a>
+                </li>
+                <li>
+                    <a class="btn darken-1" href="/user/create"><i class="fa fa-user left top"></i>Register</a>
+                </li>
+                {{!-- <a><a href="/"><i class="fa fa-book"></i> Post</a></a> --}}
+                <li><a href="/courses/">Courses</a></li>
+                {{!-- <li><a href="/tutorial/nodejs">Nodejs</a></li>
+                <li><a href="/tutorial/angular"> Angular</a></li>
+                <li><a href="/tutorial/react">React</a></li>
+                <li><a href="/tutorial/aspnetcore">Aspnet Core</a></li> --}}
+                {{/if}}
+
+
+            </ul>
+
+
+        </div>
+
+    </div>
+</nav>

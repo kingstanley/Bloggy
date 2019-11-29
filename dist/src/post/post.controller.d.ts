@@ -1,12 +1,25 @@
-import { User } from './../user/user.entity';
-import { PostDto } from './dto/post.dto';
-import { PostService } from './post.service';
 import { Posts } from './entity/post.entity';
+import { PostService } from './post.service';
+import { CommentDto } from './dto/comment.dto';
+import { User } from '../user/user.entity';
 export declare class PostController {
     private postService;
     constructor(postService: PostService);
-    findById(id: string): Promise<Posts>;
-    findByTitle(title: string): Promise<Posts>;
-    findAll(): Promise<Posts[]>;
-    createPost(createPostDto: PostDto, user: User): Promise<Posts>;
+    index(): Promise<{
+        posts: Posts[];
+        tags: import("./entity/tag.entity").Tag[];
+    }>;
+    findByTagr(id: string): Promise<{
+        posts: Posts[];
+        tags: import("./entity/tag.entity").Tag[];
+    }>;
+    findByAuthor(id: string): Promise<{
+        posts: Posts[];
+        tags: import("./entity/tag.entity").Tag[];
+    }>;
+    view(id: any): Promise<{
+        post: Posts;
+        tags: import("./entity/tag.entity").Tag[];
+    }>;
+    comment(id: string, comment: CommentDto, user: User, res: any): Promise<void>;
 }

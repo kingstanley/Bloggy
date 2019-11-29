@@ -17,7 +17,7 @@ export class Comment extends BaseModel {
   content: string;
   @Column('uuid') postId: string;
   @Column() status: string;
-  @ManyToOne(type => User, user => user.comments, { eager: false })
+  @ManyToOne(type => User, user => user.comments, { eager: true })
   user: User;
 
   @ManyToOne(type => Posts, posts => posts.comments, { eager: false })

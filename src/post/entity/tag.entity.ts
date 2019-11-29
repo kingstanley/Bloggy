@@ -8,7 +8,7 @@ export class Tag extends BaseModel {
   @Column()
   tag: string;
  
-  // @ManyToMany(type => Posts)
-  // posts: Posts[]
+  @ManyToMany(type => Posts, post => post.tags)
+  posts: Posts[]
 }
 

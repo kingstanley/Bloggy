@@ -1,7 +1,7 @@
-import { IsNotEmpty, IsString, IsArray, IsBoolean } from 'class-validator';
-import { isString } from 'util';
-import { TagDto } from './tag.dto';
-import { Tag } from '../entity/tag.entity';
+import { IsNotEmpty, IsString, IsArray, IsBoolean } from "class-validator";
+import { isString } from "util";
+import { TagDto } from "./tag.dto";
+import { Tag } from "../entity/tag.entity";
 
 export class PostDto {
   @IsNotEmpty()
@@ -12,7 +12,9 @@ export class PostDto {
   @IsNotEmpty()
   @IsString()
   content: string;
-
+  @IsString()
+  videoUrl: string;
   @IsString() status: string;
   @IsBoolean() allowComments: boolean;
+  id?: string;
 }

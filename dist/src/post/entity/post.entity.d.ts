@@ -7,6 +7,7 @@ export declare class Posts extends BaseModel {
     title: string;
     slug: string;
     status: string;
+    videoUrl: string;
     allowComments: boolean;
     userId: string;
     content: string;

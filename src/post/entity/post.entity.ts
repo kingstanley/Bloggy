@@ -21,7 +21,7 @@ export class Posts extends BaseModel {
   title: string;
   @Column() slug: string;
   @Column() status: string;
-
+  @Column() videoUrl: string;
   @Column() allowComments: boolean;
   @Column('uuid')
   userId: string;
@@ -29,16 +29,19 @@ export class Posts extends BaseModel {
   content: string;
 
   @ManyToOne(type => User, user => user.myposts)
-  // @JoinColumn({name:'userId'})
+  @JoinColumn({name:'userId'})
   user: User;
 
-  @ManyToMany(type => Tag,{cascade:true})
+  @ManyToMany(type => Tag, tag => tag.posts, {cascade:true})
   @JoinTable()
   tags: Tag[];
 
-  @OneToMany(type => Comment, comment => comment.postId   )
+  @OneToMany(type => Comment, comment => comment.post ,{cascade: true}  )
+  @JoinColumn({name:'postId'})
   comments: Comment[];
 
-  @OneToMany(type => Like, like => like.post)
+  @OneToMany(type => Like, like => like.post,{cascade:true})
+  @JoinColumn({name:'postId'})
   likes: Like[];
+  
 }

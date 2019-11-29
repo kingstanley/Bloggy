@@ -1,10 +1,11 @@
-// import { BaseModel } from './../../shared/basemodel';
-// import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn } from 'typeorm';
+// import { BaseModel } from './../../basemodel';
+//  import { Entity,   Column } from 'typeorm';
 
-// @Entity()
+
+// @Entity('post_tags_tag')
 // export class PostTags extends BaseModel {
-//   @PrimaryColumn('uuid')
-//   tag: string;
-//   @PrimaryColumn('uuid')
-//    post: string;
+//   @Column('uuid')
+//   tagId: string;
+//   @Column('uuid')
+//    postId: string;
 // }
