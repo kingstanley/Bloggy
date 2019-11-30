@@ -5,8 +5,8 @@ import { Controller, Get, Body, Post } from "@nestjs/common";
 import { GetUser } from "../user/get-user.decorator";
 
 
-@Controller("subscription")
-export class SubscriptionController {
+@Controller("api/subscription")
+export class SubscriptionApiController {
   constructor(private subService: SubscriptionService) {}
 
   @Get()
@@ -21,8 +21,7 @@ export class SubscriptionController {
 
   @Post()
   subscribe(@Body() subscription: Subscription): Promise<string> {
-    const sub =  this.subService.subscribe(subscription);
-    return;
+    return this.subService.subscribe(subscription);
   }
 
 }

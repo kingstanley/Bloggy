@@ -2074,7 +2074,7 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f"
       },
       "d:/nodeprojects/standevcode/backend/config/typeormconfig.ts": {
-        "version": "54a399a406a9195482446dc1f408e99c942bcefe2c855e4a23af2698d93fe1b0",
+        "version": "cee2449addd9a146c928e29381c761cbee84c02c98f883ef405ca9078ac88cf2",
         "signature": "20c66cb320b090f75350bcdcde9479a854dd2e2e4051814c0dd31af2a8db9977"
       },
       "d:/nodeprojects/standevcode/backend/node_modules/@nest-modules/mailer/dist/interfaces/template-adapter.interface.d.ts": {
@@ -2513,12 +2513,16 @@
         "version": "7a707a91a267b843d4a7387c9eb2c44d16e4b17a3ce422cecce85b36f8e8927d",
         "signature": "49f370e2f0c44147809d9cff173589280b0867c904110411e60dcbf560f948f1"
       },
+      "d:/nodeprojects/standevcode/backend/src/subscription/subscription.api.controller.ts": {
+        "version": "995cb3a1f07e1a4e34733defe3cb742ff285186cbf6672ee3bed94dd3f8bfb16",
+        "signature": "d15ab1c19cc886c74b8b61f593d9c682c74054dd79159f7106695d3baab35624"
+      },
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.controller.ts": {
-        "version": "dfded1803f22bc795d6485e2925eecee0e30d59ae59f23a311cda72770abdf50",
+        "version": "ffae4f621dcf6a228bc6e622a166819567ea324e010cf7367c7185b2956cfd8e",
         "signature": "72debed26dab110aee143af6a84ddeba7775191986e1fb1f1fad30893c7fd736"
       },
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.module.ts": {
-        "version": "1ac6d340dc551eb23e4f18efdf7139a9e7812666cae956fea286aafe4acf80b3",
+        "version": "5ebbcbfe1ee738f1595eaeaee6e9633f7a543f5e53746b76158e9ee09b01e0c8",
         "signature": "e2cd22e92ecae2b37c52ff73affea006d660ea834cf986c4061da04c088c6c1c"
       },
       "d:/nodeprojects/standevcode/backend/node_modules/@nestjs/serve-static/dist/interfaces/serve-static-options.interface.d.ts": {
@@ -6856,22 +6860,31 @@
         "d:/nodeprojects/standevcode/backend/node_modules/@types/node/util.d.ts",
         "d:/nodeprojects/standevcode/backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "d:/nodeprojects/standevcode/backend/src/subscription/subscription.api.controller.ts": [
+        "d:/nodeprojects/standevcode/backend/src/user/user.entity.ts",
+        "d:/nodeprojects/standevcode/backend/src/subscription/subscription.entity.ts",
+        "d:/nodeprojects/standevcode/backend/src/subscription/subscription.service.ts",
+        "d:/nodeprojects/standevcode/backend/node_modules/@nestjs/common/index.d.ts",
+        "d:/nodeprojects/standevcode/backend/src/user/get-user.decorator.ts",
+        "d:/nodeprojects/standevcode/backend/node_modules/@types/node/util.d.ts",
+        "d:/nodeprojects/standevcode/backend/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.controller.ts": [
         "d:/nodeprojects/standevcode/backend/src/user/user.entity.ts",
         "d:/nodeprojects/standevcode/backend/src/subscription/subscription.entity.ts",
         "d:/nodeprojects/standevcode/backend/src/subscription/subscription.service.ts",
         "d:/nodeprojects/standevcode/backend/node_modules/@nestjs/common/index.d.ts",
         "d:/nodeprojects/standevcode/backend/src/user/get-user.decorator.ts",
-        "d:/nodeprojects/standevcode/backend/node_modules/rxjs/index.d.ts",
         "d:/nodeprojects/standevcode/backend/node_modules/@types/node/util.d.ts",
         "d:/nodeprojects/standevcode/backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.module.ts": [
         "d:/nodeprojects/standevcode/backend/node_modules/@nestjs/common/index.d.ts",
         "d:/nodeprojects/standevcode/backend/src/subscription/subscription.service.ts",
-        "d:/nodeprojects/standevcode/backend/src/subscription/subscription.controller.ts",
+        "d:/nodeprojects/standevcode/backend/src/subscription/subscription.api.controller.ts",
         "d:/nodeprojects/standevcode/backend/node_modules/@nestjs/typeorm/index.d.ts",
         "d:/nodeprojects/standevcode/backend/src/subscription/subscription.repository.ts",
+        "d:/nodeprojects/standevcode/backend/src/subscription/subscription.controller.ts",
         "d:/nodeprojects/standevcode/backend/node_modules/@types/node/util.d.ts",
         "d:/nodeprojects/standevcode/backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11139,6 +11152,11 @@
         "d:/nodeprojects/standevcode/backend/src/subscription/subscription.entity.ts",
         "d:/nodeprojects/standevcode/backend/src/user/user.entity.ts"
       ],
+      "d:/nodeprojects/standevcode/backend/src/subscription/subscription.api.controller.ts": [
+        "d:/nodeprojects/standevcode/backend/src/subscription/subscription.service.ts",
+        "d:/nodeprojects/standevcode/backend/src/subscription/subscription.entity.ts",
+        "d:/nodeprojects/standevcode/backend/src/user/user.entity.ts"
+      ],
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.controller.ts": [
         "d:/nodeprojects/standevcode/backend/src/subscription/subscription.service.ts",
         "d:/nodeprojects/standevcode/backend/src/subscription/subscription.entity.ts",
@@ -12143,6 +12161,7 @@
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.entity.ts",
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.repository.ts",
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.service.ts",
+      "d:/nodeprojects/standevcode/backend/src/subscription/subscription.api.controller.ts",
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.controller.ts",
       "d:/nodeprojects/standevcode/backend/src/subscription/subscription.module.ts",
       "d:/nodeprojects/standevcode/backend/node_modules/@nestjs/serve-static/dist/interfaces/serve-static-options.interface.d.ts",

@@ -7,16 +7,60 @@ body {
 
   /* background: radial-gradient(red, white) */
 }
+@media (min-width: 1000px) {
+  .form {
+    width: 500px;
+    text-align: center;
+    margin-top: 6%;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+  .post-card{
+    height: 500px;
+
+  }
+  .post-card:last-child{
+    margin-right: -50px;
+  }
+}
+.no-space:not(:last-child) {
+  margin-bottom: 2px;
+}
+.form {
+  /* width: 500px; text-align:center;margin-top: 6%; margin-left:30%; margin-right: auto */
+  height: auto;
+}
 .container {
   width: 97%;
 }
-.img{
+.img {
   width: 100px;
+}
+.title{
+  margin-top: -10px;
+}
+.post-title{
+  font-size: 50px; 
+  text-transform: capitalize;
 }
 .card {
   /* display: inline-block;  */
   flex: row;
-  word-wrap: break-word
+  word-wrap: break-word;
+}
+.post-list-author{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* text-align: center;  */
+}
+.post-list-read{
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -90%);
+  /* text-align: center;  */
 }
 .post-card {
   display: inline-block;
@@ -24,7 +68,7 @@ body {
   margin-right: 30px;
   margin-left: 30px;
   margin-bottom: 10px;
-  height: 500px;
+  /* height: auto; */
   word-wrap: break-word;
 }
 main {
@@ -65,7 +109,7 @@ footer {
   font-size: 1.5rem;
   margin: 2px;
   text-align: justify;
-  width:90%;
+  width: 90%;
   break-after: column;
 }
 .input-field {

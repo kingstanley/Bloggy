@@ -17,7 +17,7 @@ const subscription_entity_1 = require("./subscription.entity");
 const subscription_service_1 = require("./subscription.service");
 const common_1 = require("@nestjs/common");
 const get_user_decorator_1 = require("../user/get-user.decorator");
-let SubscriptionController = class SubscriptionController {
+let SubscriptionApiController = class SubscriptionApiController {
     constructor(subService) {
         this.subService = subService;
     }
@@ -28,8 +28,7 @@ let SubscriptionController = class SubscriptionController {
         return this.subService.findByUserId(user);
     }
     subscribe(subscription) {
-        const sub = this.subService.subscribe(subscription);
-        return;
+        return this.subService.subscribe(subscription);
     }
 };
 __decorate([
@@ -37,24 +36,24 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], SubscriptionController.prototype, "findAll", null);
+], SubscriptionApiController.prototype, "findAll", null);
 __decorate([
     common_1.Get("findbyuser"),
     __param(0, get_user_decorator_1.GetUser()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_entity_1.User]),
     __metadata("design:returntype", Promise)
-], SubscriptionController.prototype, "findByUserId", null);
+], SubscriptionApiController.prototype, "findByUserId", null);
 __decorate([
     common_1.Post(),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [subscription_entity_1.Subscription]),
     __metadata("design:returntype", Promise)
-], SubscriptionController.prototype, "subscribe", null);
-SubscriptionController = __decorate([
-    common_1.Controller("subscription"),
+], SubscriptionApiController.prototype, "subscribe", null);
+SubscriptionApiController = __decorate([
+    common_1.Controller("api/subscription"),
     __metadata("design:paramtypes", [subscription_service_1.SubscriptionService])
-], SubscriptionController);
-exports.SubscriptionController = SubscriptionController;
-//# sourceMappingURL=subscription.controller.js.map
+], SubscriptionApiController);
+exports.SubscriptionApiController = SubscriptionApiController;
+//# sourceMappingURL=subscription.api.controller.js.map

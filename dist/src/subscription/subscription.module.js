@@ -8,15 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const subscription_service_1 = require("./subscription.service");
-const subscription_controller_1 = require("./subscription.controller");
+const subscription_api_controller_1 = require("./subscription.api.controller");
 const typeorm_1 = require("@nestjs/typeorm");
 const subscription_repository_1 = require("./subscription.repository");
+const subscription_controller_1 = require("./subscription.controller");
 let SubscriptionModule = class SubscriptionModule {
 };
 SubscriptionModule = __decorate([
     common_1.Module({
         providers: [subscription_service_1.SubscriptionService],
-        controllers: [subscription_controller_1.SubscriptionController],
+        controllers: [subscription_controller_1.SubscriptionController, subscription_api_controller_1.SubscriptionApiController],
         imports: [
             typeorm_1.TypeOrmModule.forFeature([subscription_repository_1.SubscriptionRepository]),
         ],
