@@ -1,3 +1,4 @@
+
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@nestjs/core");
@@ -48,5 +49,5 @@ async function bootstrap() {
     });
     await app.listen(port);
 }
-bootstrap();
+bootstrap(); 
 //# sourceMappingURL=main.js.map

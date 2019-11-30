@@ -3,6 +3,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'mysql',
   host: 'localhost',
+
   // host:'209.205.209.130',
   port: 3306,
   
@@ -15,6 +16,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   
   database: 'sdc',
   // database: 'standevc_sdc',
-  entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
   synchronize: true, 
 };

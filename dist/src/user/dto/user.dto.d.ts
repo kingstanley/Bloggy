@@ -1,3 +1,4 @@
+
 export declare class UserDto {
     username: string;
     email: string;
@@ -10,4 +11,4 @@ export declare class UserDto {
     tokenExpiresAt: number;
     confirmedEmail: boolean;
     confirmedPhone: boolean;
-}
+} 
