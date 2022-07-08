@@ -39,7 +39,7 @@
     "express-session": "^1.17.0",
     "handlebars-paginate": "^0.1.0",
     "hbs": "^4.0.6",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
